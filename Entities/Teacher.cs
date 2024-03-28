@@ -16,7 +16,7 @@ namespace Animals.Entities
             return "Don't forget to do the assigned reading!";
         }
 
-        public new string GetName()
+        public override string GetName()
         {
             return Name;
         }

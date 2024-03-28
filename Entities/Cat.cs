@@ -18,7 +18,7 @@ namespace Animals.Entities
             return "Meow!!";
         }
 
-        public new string GetName()
+        public override string GetName()
         {
             return Name;
         }

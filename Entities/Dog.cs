@@ -21,7 +21,7 @@ namespace Animals.Entities
             return "Bark!!";
         }
 
-        public new string GetName()
+        public override string GetName()
         {
             return Name;
         }

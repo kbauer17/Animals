@@ -17,6 +17,7 @@ namespace Animals{
 
             foreach(ITalkable talkable in zoo){
                 Console.WriteLine(talkable);
+                Console.WriteLine(talkable.GetName() + " says " + talkable.Talk());
             }
             
             
