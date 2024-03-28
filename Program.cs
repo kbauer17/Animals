@@ -11,14 +11,16 @@ namespace Animals{
         {
             // designate the file to read/write to
             string zooFilePath = Directory.GetCurrentDirectory() + "//animals.txt";
-            
-            
+                        
             List<ITalkable> zoo = new List<ITalkable>();
-            zoo.Add(new Dog(true, "Bean"));
-            zoo.Add(new Cat(9, "Charlie"));
-            zoo.Add(new Teacher(44,"Stacy Read"));
+            // zoo.Add(new Dog(true, "Bean"));
+            // zoo.Add(new Cat(9, "Charlie"));
+            // zoo.Add(new Teacher(44,"Stacy Read"));
 
+            ZooDriver userZoo = new ZooDriver();
+            userZoo.userMenu(zoo);
 
+            Console.WriteLine("\n  Output directly from the zoo list:  \n");
             foreach(ITalkable talkable in zoo){
                 Console.WriteLine(talkable.GetName() + " says " + talkable.Talk());
                 // write it to the file
@@ -38,11 +40,13 @@ namespace Animals{
             try
             {
                 StreamReader sr = new StreamReader(zooFilePath);
+                Console.WriteLine("\n  ...and now reading from the file:  \n");
                 while (!sr.EndOfStream)
                 {
                     string line = sr.ReadLine();
                     Console.WriteLine(line);
                 }
+                sr.Close();
             }
             catch (Exception ex)
             {
