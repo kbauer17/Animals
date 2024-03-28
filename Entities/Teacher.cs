@@ -20,6 +20,11 @@ namespace Animals.Entities
         {
             return Name;
         }
+
+        public override string ToString()
+        {
+            return "Teacher: " + "name=" + Name + " age=" + Age;
+        }
     }
 
 
