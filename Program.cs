@@ -9,6 +9,10 @@ namespace Animals{
     {
         public static void Main(string[] args)
         {
+            // designate the file to read/write to
+            string zooFilePath = Directory.GetCurrentDirectory() + "//animals.txt";
+            
+            
             List<ITalkable> zoo = new List<ITalkable>();
             zoo.Add(new Dog(true, "Bean"));
             zoo.Add(new Cat(9, "Charlie"));
@@ -16,8 +20,19 @@ namespace Animals{
 
 
             foreach(ITalkable talkable in zoo){
-                Console.WriteLine(talkable);
                 Console.WriteLine(talkable.GetName() + " says " + talkable.Talk());
+                // write it to the file
+                try
+                {
+                    StreamWriter sw = new StreamWriter(zooFilePath, true);
+                    sw.WriteLine("{0} | {1}",talkable.GetName(),talkable.Talk());
+                    sw.Close();
+                }
+                catch(Exception ex)
+                {
+                    Console.WriteLine(ex.Message);
+                }
+                
             }
             
             
