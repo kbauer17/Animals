@@ -32,10 +32,23 @@ namespace Animals{
                 {
                     Console.WriteLine(ex.Message);
                 }
-                
             }
             
-            
+            // read from the file
+            try
+            {
+                StreamReader sr = new StreamReader(zooFilePath);
+                while (!sr.EndOfStream)
+                {
+                    string line = sr.ReadLine();
+                    Console.WriteLine(line);
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("File Read Error:  " + zooFilePath + ex.Message);
+            }
+
         }
     }
 }
